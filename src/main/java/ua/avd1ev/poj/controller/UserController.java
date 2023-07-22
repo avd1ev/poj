@@ -2,13 +2,12 @@ package ua.avd1ev.poj.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import ua.avd1ev.poj.dto.UserTo;
 import ua.avd1ev.poj.service.UserService;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -27,5 +26,8 @@ public class UserController {
         return userService.getAll();
     }
 
-
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserTo> create(@RequestBody UserTo userTo) {
+        return ResponseEntity.ok(userService.create(userTo));
+    }
 }

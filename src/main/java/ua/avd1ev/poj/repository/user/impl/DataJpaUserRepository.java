@@ -21,4 +21,9 @@ public class DataJpaUserRepository implements UserRepository {
     public List<User> getAll() {
         return crudUserRepository.findAll();
     }
+
+    @Override
+    public User create(User user) {
+        return crudUserRepository.save(user);
+    }
 }

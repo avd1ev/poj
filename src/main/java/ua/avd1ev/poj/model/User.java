@@ -13,7 +13,6 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class User extends AbstractBaseEntity {
     @Column(name = "first_name")
     private String firstName;
@@ -36,6 +35,24 @@ public class User extends AbstractBaseEntity {
 
     @OneToMany(mappedBy = "user")
     private List<Excursion> excursions;
+
+    public User(Integer id,
+                String firstName,
+                String lastName,
+                String email,
+                String password,
+                String phone,
+                Job job,
+                List<Excursion> excursions) {
+        super(id);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.job = job;
+        this.excursions = excursions;
+    }
 
     @Override
     public String toString() {

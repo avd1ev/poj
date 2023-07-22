@@ -23,4 +23,9 @@ public class UserServiceImpl implements UserService {
     public List<UserTo> getAll() {
         return UsersUtil.getTos(userRepository.getAll());
     }
+
+    @Override
+    public UserTo create(UserTo userTo) {
+        return UsersUtil.createTo(userRepository.create(UsersUtil.createEntity(userTo)));
+    }
 }
