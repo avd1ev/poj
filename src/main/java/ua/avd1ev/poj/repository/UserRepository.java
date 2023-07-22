@@ -9,5 +9,5 @@ public interface UserRepository {
 
     List<User> getAll();
 
-    User create(User user);
+    User save(User user);
 }

@@ -30,4 +30,9 @@ public class UserController {
     public ResponseEntity<UserTo> create(@RequestBody UserTo userTo) {
         return ResponseEntity.ok(userService.create(userTo));
     }
+
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserTo> update(@RequestBody UserTo userTo) {
+        return ResponseEntity.ok(userService.update(userTo));
+    }
 }

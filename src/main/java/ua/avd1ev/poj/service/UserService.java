@@ -10,4 +10,6 @@ public interface UserService {
     List<UserTo> getAll();
 
     UserTo create(UserTo userTo);
+
+    UserTo update(UserTo userTo);
 }
