@@ -12,4 +12,6 @@ public interface UserService {
     UserTo create(UserTo userTo);
 
     UserTo update(UserTo userTo);
+
+    void delete(int id);
 }

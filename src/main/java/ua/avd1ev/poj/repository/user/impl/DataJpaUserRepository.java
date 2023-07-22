@@ -26,4 +26,9 @@ public class DataJpaUserRepository implements UserRepository {
     public User save(User user) {
         return crudUserRepository.save(user);
     }
+
+    @Override
+    public void delete(int id) {
+        crudUserRepository.deleteById(id);
+    }
 }

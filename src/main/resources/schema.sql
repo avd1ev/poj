@@ -36,5 +36,5 @@ CREATE TABLE excursion
 (
     id INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
     user_id INTEGER NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users (id)
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );

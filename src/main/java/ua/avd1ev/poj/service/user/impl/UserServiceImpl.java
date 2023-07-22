@@ -12,25 +12,30 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    private UserRepository userRepository;
+    private UserRepository repository;
 
     @Override
     public UserTo get(int id) {
-        return UsersUtil.createTo(userRepository.get(id));
+        return UsersUtil.createTo(repository.get(id));
     }
 
     @Override
     public List<UserTo> getAll() {
-        return UsersUtil.getTos(userRepository.getAll());
+        return UsersUtil.getTos(repository.getAll());
     }
 
     @Override
     public UserTo create(UserTo userTo) {
-        return UsersUtil.createTo(userRepository.save(UsersUtil.createEntity(userTo)));
+        return UsersUtil.createTo(repository.save(UsersUtil.createEntity(userTo)));
     }
 
     @Override
     public UserTo update(UserTo userTo) {
-        return UsersUtil.createTo(userRepository.save(UsersUtil.createEntity(userTo)));
+        return UsersUtil.createTo(repository.save(UsersUtil.createEntity(userTo)));
+    }
+
+    @Override
+    public void delete(int id) {
+        repository.delete(id);
     }
 }
